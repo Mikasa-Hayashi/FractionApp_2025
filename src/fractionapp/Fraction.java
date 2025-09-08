@@ -10,7 +10,6 @@ public class Fraction {
     private int numerator;
     private int denominator;
     
-    
     /* =========================== Операции ============================== */
 
     /* ---------------------------- Порождение ---------------------------- */
@@ -18,7 +17,6 @@ public class Fraction {
     /** Создание дроби с указанием ее числителя и знаменателя.
     * 
     */ 
-
     public Fraction(int numerator, int denominator) {
         this.numerator = numerator;
         this.denominator = denominator;
@@ -28,8 +26,8 @@ public class Fraction {
     /** Создание дроби на основе целого числа.
     * 
     */ 
-    public Fraction(int integerNum) {
-        this.numerator = integerNum;
+    public Fraction(int wholeNumber) {
+        this.numerator = wholeNumber;
         this.denominator = 1;
     }
   
@@ -81,11 +79,20 @@ public class Fraction {
     /** Сравнение двух дробей.
     * 
     */ 
+    public int compareTo(Fraction f) {
+        int left = this.numerator * f.denominator;
+        int right = f.numerator * this.denominator;
+        if (left < right) return -1;
+        if (left > right) return 1;
+        return 0;
+    }
     
     /** Эквивалентность двух дробей.
     * 
     */     
-
+    public boolean equals(Fraction f) {
+        return this.compareTo(f) == 0;
+    }
     
     /* --------------------- Операции преобразования ---------------------- */
     
