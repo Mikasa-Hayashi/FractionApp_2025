@@ -33,6 +33,14 @@ public class FractionApp {
         System.out.println(fraction1.equals(fraction3));
         System.out.println(fraction6.compareTo(fraction7));
         System.out.println(fraction6.equals(fraction7));
+
+        System.out.println(fraction1.toDouble());
+        System.out.println(fraction2.toDouble());
+        System.out.println(fraction3.toDouble());
+        System.out.println(fraction4.toDouble());
+        System.out.println(fraction5.toDouble());
+        System.out.println(fraction6.toDouble());
+        System.out.println(fraction7.toDouble());
     }
     
 }
