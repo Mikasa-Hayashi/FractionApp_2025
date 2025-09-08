@@ -99,8 +99,9 @@ public class Fraction {
     /** Представить как строку.
     * 
     */
+    @Override
     public String toString() {
-        return String.valueOf(this.numerator) + "/" + String.valueOf(this.denominator) ;
+        return this.numerator + "/" + this.denominator;
     }
 
     /** Представить как вещественное число.
