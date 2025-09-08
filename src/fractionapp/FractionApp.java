@@ -20,9 +20,19 @@ public class FractionApp {
         Fraction fraction2 = new Fraction(5, 3);
         Fraction fraction3 = fraction1.mul(fraction2);
         Fraction fraction4 = fraction1.add(fraction2);
+        Fraction fraction5 = fraction1.sub(fraction2);
+        Fraction fraction6 = fraction1.div(fraction2);
+        Fraction fraction7 = new Fraction(9, 10);
 
         System.out.println(fraction3);
         System.out.println(fraction4);
+        System.out.println(fraction5);
+        System.out.println(fraction6);
+        System.out.println(fraction1.compareTo(fraction3));
+        System.out.println(fraction4.compareTo(fraction1));
+        System.out.println(fraction1.equals(fraction3));
+        System.out.println(fraction6.compareTo(fraction7));
+        System.out.println(fraction6.equals(fraction7));
     }
     
 }
