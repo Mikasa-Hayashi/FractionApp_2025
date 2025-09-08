@@ -107,4 +107,7 @@ public class Fraction {
     /** Представить как вещественное число.
     * 
     */     
+    public double toDouble() {
+        return (double) this.numerator / this.denominator;
+    }
 }
