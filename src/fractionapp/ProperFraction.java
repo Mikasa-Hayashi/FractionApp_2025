@@ -2,7 +2,7 @@ package fractionapp;
 
 /** Несократимая дробь.
  */
-public class Fraction {
+public class ProperFraction {
     
     /* =========================== Свойства =============================== */
  
@@ -17,7 +17,7 @@ public class Fraction {
     /** Создание дроби с указанием ее числителя и знаменателя.
     * 
     */ 
-    public Fraction(int numerator, int denominator) {
+    public ProperFraction(int numerator, int denominator) {
         this.numerator = numerator;
         this.denominator = denominator;
     }
@@ -26,7 +26,7 @@ public class Fraction {
     /** Создание дроби на основе целого числа.
     * 
     */ 
-    public Fraction(int wholeNumber) {
+    public ProperFraction(int wholeNumber) {
         this.numerator = wholeNumber;
         this.denominator = 1;
     }
@@ -36,8 +36,8 @@ public class Fraction {
     /** Сложение двух дробей.
     * 
     */
-    public Fraction add(Fraction f) {
-        return new Fraction(
+    public ProperFraction add(ProperFraction f) {
+        return new ProperFraction(
             this.numerator * f.denominator + f.numerator * this.denominator,
             this.denominator * f.denominator
         );
@@ -46,8 +46,8 @@ public class Fraction {
     /** Вычитание двух дробей.
     * 
     */
-    public Fraction sub(Fraction f) {
-        return new Fraction(
+    public ProperFraction sub(ProperFraction f) {
+        return new ProperFraction(
             this.numerator * f.denominator - f.numerator * this.denominator,
             this.denominator * f.denominator
         );
@@ -56,8 +56,8 @@ public class Fraction {
     /** Умножение двух дробей.
     * 
     */
-    public Fraction mul(Fraction f) {
-        return new Fraction(
+    public ProperFraction mul(ProperFraction f) {
+        return new ProperFraction(
             this.numerator * f.numerator,
             this.denominator * f.denominator
         );
@@ -66,8 +66,8 @@ public class Fraction {
     /** Деление двух дробей.
     * 
     */
-    public Fraction div(Fraction f) {
-        return new Fraction(
+    public ProperFraction div(ProperFraction f) {
+        return new ProperFraction(
             this.numerator * f.denominator,
             this.denominator * f.numerator
         );
@@ -79,7 +79,7 @@ public class Fraction {
     /** Сравнение двух дробей.
     * 
     */ 
-    public int compareTo(Fraction f) {
+    public int compareTo(ProperFraction f) {
         int left = this.numerator * f.denominator;
         int right = f.numerator * this.denominator;
         if (left < right) return -1;
@@ -90,7 +90,7 @@ public class Fraction {
     /** Эквивалентность двух дробей.
     * 
     */     
-    public boolean equals(Fraction f) {
+    public boolean equals(ProperFraction f) {
         return this.compareTo(f) == 0;
     }
     

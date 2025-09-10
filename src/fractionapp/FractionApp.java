@@ -16,13 +16,13 @@ public class FractionApp {
      */
     public static void main(String[] args) {
         // TODO code application logic here
-        Fraction fraction1 = new Fraction(3, 2);
-        Fraction fraction2 = new Fraction(5, 3);
-        Fraction fraction3 = fraction1.mul(fraction2);
-        Fraction fraction4 = fraction1.add(fraction2);
-        Fraction fraction5 = fraction1.sub(fraction2);
-        Fraction fraction6 = fraction1.div(fraction2);
-        Fraction fraction7 = new Fraction(9, 10);
+        ProperFraction fraction1 = new ProperFraction(3, 2);
+        ProperFraction fraction2 = new ProperFraction(5, 3);
+        ProperFraction fraction3 = fraction1.mul(fraction2);
+        ProperFraction fraction4 = fraction1.add(fraction2);
+        ProperFraction fraction5 = fraction1.sub(fraction2);
+        ProperFraction fraction6 = fraction1.div(fraction2);
+        ProperFraction fraction7 = new ProperFraction(9, 10);
 
         System.out.println(fraction3);
         System.out.println(fraction4);
