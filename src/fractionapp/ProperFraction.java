@@ -18,6 +18,13 @@ public class ProperFraction {
     * 
     */ 
     public ProperFraction(int numerator, int denominator) {
+        if (numerator >= denominator) {
+            throw new java.lang.Error(String.format(
+                "Fraction \"%s/%s\" is improper: (numerator >= denominator)", 
+                numerator, 
+                denominator
+            ));
+        }
         this.numerator = numerator;
         this.denominator = denominator;
     }
