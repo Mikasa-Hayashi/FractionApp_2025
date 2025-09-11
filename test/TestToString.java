@@ -27,4 +27,20 @@ public class TestToString {
         String actualString = fraction.toString();
         Assertions.assertEquals(expString, actualString);
     }
+
+    @Test
+    void numeratorAndDenominatorAreNegative() {
+        String expString = "1/2";
+        ProperFraction fraction = new ProperFraction(-1, -2);
+        String actualString = fraction.toString();
+        Assertions.assertEquals(expString, actualString);
+    }
+
+    @Test
+    void denominatorMaxValue() {
+        String expString = String.format("1/%d", Integer.MAX_VALUE);
+        ProperFraction fraction = new ProperFraction(1, Integer.MAX_VALUE);
+        String actualString = fraction.toString();
+        Assertions.assertEquals(expString, actualString);
+    }
 }
