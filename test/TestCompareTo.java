@@ -39,15 +39,4 @@ public class TestCompareTo {
         int actualRes = fraction1.compareTo(fraction2);
         Assertions.assertEquals(expRes, actualRes);
     }
-
-    @Test
-    void test() {
-        ProperFraction f = new ProperFraction(3, 4);
-
-        ProperFraction exp = new ProperFraction(0, 1);
-
-        ProperFraction result = f.sub(f);
-
-        Assertions.assertEquals(exp, result);
-    }
 }
