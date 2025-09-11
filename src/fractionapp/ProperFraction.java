@@ -9,6 +9,7 @@ public class ProperFraction {
     /* ---------------------- Числитель и знаменатель --------------------- */
     private int numerator;
     private int denominator;
+    private boolean isValid = true;
     
     /* =========================== Операции ============================== */
 
@@ -18,21 +19,15 @@ public class ProperFraction {
     * 
     */ 
     public ProperFraction(int numerator, int denominator) {
-        if (numerator < 0) {
-            throw new IllegalArgumentException("Numerator must be >= 0");
+        if ((numerator < 0 || denominator <= 0) && !(numerator < 0 && denominator < 0)) {
+            isValid = false;
         }
-        if (denominator <= 0) {
-            throw new IllegalArgumentException("Denominator must be > 0");
+        if (Math.abs(numerator) >= Math.abs(denominator)) {
+            isValid = false;
         }
-        if (numerator >= denominator) {
-            throw new IllegalArgumentException(String.format(
-                "Fraction \"%s/%s\" is improper: (numerator >= denominator)", 
-                numerator, 
-                denominator
-            ));
-        }
-        this.numerator = numerator;
-        this.denominator = denominator;
+        int gcd = gcd(Math.abs(numerator), Math.abs(denominator));
+        this.numerator = Math.abs(numerator) / gcd;
+        this.denominator = Math.abs(denominator) / gcd;
     }
 
 
@@ -43,6 +38,11 @@ public class ProperFraction {
         this.numerator = wholeNumber;
         this.denominator = 1;
     }
+
+    /* --------------------- Вспомогательные операции ---------------------- */
+    private int gcd(int a, int b) {
+        return b==0 ? a : gcd(b, a%b);
+    }
   
     /* --------------------- Арифметические операции ---------------------- */
     
@@ -50,6 +50,9 @@ public class ProperFraction {
     * 
     */
     public ProperFraction add(ProperFraction f) {
+        if (!this.isValid) {
+            throw new IllegalArgumentException("Fraction is not valid");
+        }
         return new ProperFraction(
             this.numerator * f.denominator + f.numerator * this.denominator,
             this.denominator * f.denominator
@@ -60,6 +63,10 @@ public class ProperFraction {
     * 
     */
     public ProperFraction sub(ProperFraction f) {
+        if (!this.isValid) {
+            throw new IllegalArgumentException("Fraction is not valid");
+        }
+
         return new ProperFraction(
             this.numerator * f.denominator - f.numerator * this.denominator,
             this.denominator * f.denominator
@@ -70,6 +77,9 @@ public class ProperFraction {
     * 
     */
     public ProperFraction mul(ProperFraction f) {
+        if (!this.isValid) {
+            throw new IllegalArgumentException("Fraction is not valid");
+        }
         return new ProperFraction(
             this.numerator * f.numerator,
             this.denominator * f.denominator
@@ -80,6 +90,9 @@ public class ProperFraction {
     * 
     */
     public ProperFraction div(ProperFraction f) {
+        if (!this.isValid) {
+            throw new IllegalArgumentException("Fraction is not valid");
+        }
         return new ProperFraction(
             this.numerator * f.denominator,
             this.denominator * f.numerator
@@ -93,6 +106,9 @@ public class ProperFraction {
     * 
     */ 
     public int compareTo(ProperFraction f) {
+        if (!this.isValid) {
+            throw new IllegalArgumentException("Fraction is not valid");
+        }
         int left = this.numerator * f.denominator;
         int right = f.numerator * this.denominator;
         if (left < right) return -1;
@@ -104,6 +120,9 @@ public class ProperFraction {
     * 
     */     
     public boolean equals(ProperFraction f) {
+        if (!this.isValid) {
+            throw new IllegalArgumentException("Fraction is not valid");
+        }
         return this.compareTo(f) == 0;
     }
     
@@ -114,6 +133,9 @@ public class ProperFraction {
     */
     @Override
     public String toString() {
+        if (!this.isValid) {
+            throw new IllegalArgumentException("Fraction is not valid");
+        }
         return this.numerator + "/" + this.denominator;
     }
 
@@ -121,6 +143,9 @@ public class ProperFraction {
     * 
     */     
     public double toDouble() {
+        if (!this.isValid) {
+            throw new IllegalArgumentException("Fraction is not valid");
+        }
         return (double) this.numerator / this.denominator;
     }
 }
