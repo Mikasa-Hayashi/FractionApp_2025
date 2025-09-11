@@ -136,6 +136,9 @@ public class ProperFraction {
         if (!this.isValid) {
             throw new IllegalArgumentException("Fraction is not valid");
         }
+        if (this.numerator == 0) {
+            return "0";
+        }
         return this.numerator + "/" + this.denominator;
     }
 
