@@ -30,16 +30,7 @@ public class ProperFraction {
         this.denominator = Math.abs(denominator) / gcd;
     }
 
-
-    /** Создание дроби на основе целого числа.
-    * 
-    */ 
-    public ProperFraction(int wholeNumber) {
-        this.numerator = wholeNumber;
-        this.denominator = 1;
-    }
-
-    /* --------------------- Вспомогательные операции ---------------------- */
+    /* --------------------- Вспомогательные методы ---------------------- */
     private int gcd(int a, int b) {
         return b==0 ? a : gcd(b, a%b);
     }
