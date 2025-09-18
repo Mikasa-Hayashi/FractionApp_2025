@@ -16,20 +16,20 @@ public class FractionApp {
      */
     public static void main(String[] args) {
         // TODO code application logic here
-        ProperFraction fraction1 = new ProperFraction(3, 2);
-        ProperFraction fraction2 = new ProperFraction(5, 3);
-        ProperFraction fraction3 = fraction1.mul(fraction2);
-        ProperFraction fraction4 = fraction1.add(fraction2);
-        ProperFraction fraction5 = fraction1.sub(fraction2);
-        ProperFraction fraction6 = fraction1.div(fraction2);
-        ProperFraction fraction7 = new ProperFraction(9, 10);
+        Fraction fraction1 = new Fraction(3, 5);
+        Fraction fraction2 = new Fraction(2, 3);
+        Fraction fraction3 = fraction1.mul(fraction2);
+        // Fraction fraction4 = fraction1.add(fraction2);
+        Fraction fraction5 = fraction1.sub(fraction2);
+        Fraction fraction6 = fraction1.div(fraction2);
+        Fraction fraction7 = new Fraction(9, 10);
 
         System.out.println(fraction3);
-        System.out.println(fraction4);
+        // System.out.println(fraction4);
         System.out.println(fraction5);
         System.out.println(fraction6);
         System.out.println(fraction1.compareTo(fraction3));
-        System.out.println(fraction4.compareTo(fraction1));
+        // System.out.println(fraction4.compareTo(fraction1));
         System.out.println(fraction1.equals(fraction3));
         System.out.println(fraction6.compareTo(fraction7));
         System.out.println(fraction6.equals(fraction7));
@@ -37,7 +37,7 @@ public class FractionApp {
         System.out.println(fraction1.toDouble());
         System.out.println(fraction2.toDouble());
         System.out.println(fraction3.toDouble());
-        System.out.println(fraction4.toDouble());
+        // System.out.println(fraction4.toDouble());
         System.out.println(fraction5.toDouble());
         System.out.println(fraction6.toDouble());
         System.out.println(fraction7.toDouble());
