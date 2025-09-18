@@ -16,8 +16,10 @@ public class Fraction {
     /* ---------------------------- Порождение ---------------------------- */
     
     /** Создание дроби с указанием ее числителя и знаменателя.
-    * 
-    */ 
+     *
+     * @param numerator числитель
+     * @param denominator знаменатель
+     */
     public Fraction(int numerator, int denominator) {
         if ((numerator < 0 || denominator <= 0) && !(numerator < 0 && denominator < 0)) {
             isProper = false;
