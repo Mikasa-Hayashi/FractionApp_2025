@@ -7,8 +7,8 @@ public class Fraction {
     /* =========================== Свойства =============================== */
  
     /* ---------------------- Числитель и знаменатель --------------------- */
-    private int numerator;
-    private int denominator;
+    private final int _numerator;
+    private final int _denominator;
     private boolean isProper = true;
     
     /* =========================== Операции ============================== */
@@ -17,8 +17,8 @@ public class Fraction {
     
     /** Создание дроби с указанием ее числителя и знаменателя.
      *
-     * @param numerator числитель
-     * @param denominator знаменатель
+     * @param numerator числитель (>= 0)
+     * @param denominator знаменатель (> 0)
      */
     public Fraction(int numerator, int denominator) {
         if ((numerator < 0 || denominator <= 0) && !(numerator < 0 && denominator < 0)) {
@@ -28,8 +28,8 @@ public class Fraction {
             isProper = false;
         }
         int gcd = gcd(Math.abs(numerator), Math.abs(denominator));
-        this.numerator = Math.abs(numerator) / gcd;
-        this.denominator = Math.abs(denominator) / gcd;
+        _numerator = Math.abs(numerator) / gcd;
+        _denominator = Math.abs(denominator) / gcd;
     }
 
     /* --------------------- Вспомогательные методы ---------------------- */
@@ -56,8 +56,8 @@ public class Fraction {
             throw new IllegalArgumentException("Fraction is not valid");
         }
         return new Fraction(
-            this.numerator * f.denominator + f.numerator * this.denominator,
-            this.denominator * f.denominator
+                _numerator * f._denominator + f._numerator * _denominator,
+                _denominator * f._denominator
         );
     }
 
@@ -71,8 +71,8 @@ public class Fraction {
             throw new IllegalArgumentException("Fraction is not valid");
         }
         return new Fraction(
-            this.numerator * f.denominator - f.numerator * this.denominator,
-            this.denominator * f.denominator
+                _numerator * f._denominator - f._numerator * _denominator,
+                _denominator * f._denominator
         );
     }
 
@@ -86,8 +86,8 @@ public class Fraction {
             throw new IllegalArgumentException("Fraction is not valid");
         }
         return new Fraction(
-            this.numerator * f.numerator,
-            this.denominator * f.denominator
+                _numerator * f._numerator,
+                _denominator * f._denominator
         );
     }
     
@@ -101,8 +101,8 @@ public class Fraction {
             throw new IllegalArgumentException("Fraction is not valid");
         }
         return new Fraction(
-            this.numerator * f.denominator,
-            this.denominator * f.numerator
+                _numerator * f._denominator,
+                _denominator * f._numerator
         );
     }
 
@@ -120,16 +120,16 @@ public class Fraction {
         if (!this.isProper) {
             throw new IllegalArgumentException("Fraction is not valid");
         }
-        int left = this.numerator * f.denominator;
-        int right = f.numerator * this.denominator;
+        int left = _numerator * f._denominator;
+        int right = f._numerator * _denominator;
         return Integer.compare(left, right);
     }
     
     /** Проверка эквивалентности данной дроби с другой дробью.
      *
      * @param obj объект проверяемой дроби
-     * @return 0, если дроби не эквивалентны;
-     * 1, если дроби эквивалентны;
+     * @return false, если дроби не эквивалентны;
+     * true, если дроби эквивалентны;
      */
     @Override
     public boolean equals(Object obj) {
@@ -157,10 +157,10 @@ public class Fraction {
         if (!this.isProper) {
             throw new IllegalArgumentException("Fraction is not valid");
         }
-        if (this.numerator == 0) {
+        if (_numerator == 0) {
             return "0";
         }
-        return this.numerator + "/" + this.denominator;
+        return _numerator + "/" + _denominator;
     }
 
     /** Представление данной дроби в виде вещественного числа.
@@ -171,6 +171,6 @@ public class Fraction {
         if (!this.isProper) {
             throw new IllegalArgumentException("Fraction is not valid");
         }
-        return (double) this.numerator / this.denominator;
+        return (double) _numerator / _denominator;
     }
 }
