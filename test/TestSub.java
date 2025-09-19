@@ -61,7 +61,7 @@ public class TestSub {
     void differentDenominatorsWithZeroNumerator() {
         Fraction expFraction = new Fraction(0, 1);
         Fraction fraction1 = new Fraction(0, 2);
-        Fraction fraction2 = new Fraction(0, 3);
+        Fraction fraction2 = new Fraction(0, 1);
         Fraction actualFraction = fraction1.sub(fraction2);
         Assertions.assertEquals(expFraction, actualFraction);
     }

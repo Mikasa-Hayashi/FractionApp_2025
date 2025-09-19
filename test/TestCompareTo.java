@@ -4,6 +4,12 @@ import org.junit.jupiter.api.Test;
 
 
 public class TestCompareTo {
+
+    /*  аспекты тестирования:
+    - тип дроби: сокращаемая, несокращаемая
+    - равенство дробей: дроби равны, левая дробь больше, левая дробь меньше
+    */
+
     @Test
     void sameFractions() {
         int expRes = 0;
