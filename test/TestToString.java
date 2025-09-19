@@ -4,6 +4,14 @@ import org.junit.jupiter.api.Test;
 
 
 public class TestToString {
+
+    /*  аспекты тестирования:
+    - свойство дроби: сократимая, несократимая
+    - знак числителя и знаменателя: оба положительные, оба отрицательные
+    - диапазон числителя: [0..2^31-1]
+    */
+
+
     @Test
     void irreducibleFraction() {
         String expString = "1/2";
