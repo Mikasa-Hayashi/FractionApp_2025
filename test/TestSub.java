@@ -10,10 +10,11 @@ public class TestSub {
     - свойства получившейся дроби: сократимая, несократимая, правильная, неправильная
     - знак знаменателя: положительный, отрицательный, равен нулю
     - знак числителя: положительный, отрицательный, равен нулю
+    - диапазон знаменателя: [-
     */
 
     @Test
-    void resultIsZero() {
+    void resultIsZeroIrreducibleAndReducible() {
         Fraction expFraction = new Fraction(0, 1);
         Fraction fraction1 = new Fraction(1, 2);
         Fraction fraction2 = new Fraction(2, 4);
@@ -22,27 +23,75 @@ public class TestSub {
     }
 
     @Test
-    void subSameFraction() {
+    void resultIsZeroBothReducible() {
         Fraction expFraction = new Fraction(0, 1);
-        Fraction fraction = new Fraction(1, 2);
-        Fraction actualFraction = fraction.sub(fraction);
-        Assertions.assertEquals(expFraction, actualFraction);
-    }
-
-    @Test
-    void sameDenominators() {
-        Fraction expFraction = new Fraction(1, 4);
-        Fraction fraction1 = new Fraction(3, 4);
+        Fraction fraction1 = new Fraction(2, 4);
         Fraction fraction2 = new Fraction(2, 4);
         Fraction actualFraction = fraction1.sub(fraction2);
         Assertions.assertEquals(expFraction, actualFraction);
     }
 
     @Test
-    void differentDenominators() {
-        Fraction expFraction = new Fraction(4, 15);
-        Fraction fraction1 = new Fraction(3, 5);
+    void resultIsPositiveBothIrreducible() {
+        Fraction expFraction = new Fraction(1, 6);
+        Fraction fraction1 = new Fraction(1, 2);
         Fraction fraction2 = new Fraction(1, 3);
+        Fraction actualFraction = fraction1.sub(fraction2);
+        Assertions.assertEquals(expFraction, actualFraction);
+    }
+
+    @Test
+    void resultIsPositiveIrreducibleAndReducible() {
+        Fraction expFraction = new Fraction(1, 6);
+        Fraction fraction1 = new Fraction(1, 2);
+        Fraction fraction2 = new Fraction(2, 6);
+        Fraction actualFraction = fraction1.sub(fraction2);
+        Assertions.assertEquals(expFraction, actualFraction);
+    }
+
+    @Test
+    void resultIsPositiveBothReducible() {
+        Fraction expFraction = new Fraction(1, 6);
+        Fraction fraction1 = new Fraction(2, 4);
+        Fraction fraction2 = new Fraction(2, 6);
+        Fraction actualFraction = fraction1.sub(fraction2);
+        Assertions.assertEquals(expFraction, actualFraction);
+    }
+
+    @Test
+    void resultIsNegativeBothIrreducible() {
+        boolean expIsProper = false;
+        Fraction fraction1 = new Fraction(1, 3);
+        Fraction fraction2 = new Fraction(1, 2);
+        Fraction actualFraction = fraction1.sub(fraction2);
+        Assertions.assertEquals(expIsProper, actualFraction.isProper());
+    }
+
+    @Test
+    void resultIsNegativeIrreducibleAndReducible() {
+        boolean expIsProper = false;
+        Fraction fraction1 = new Fraction(1, 3);
+        Fraction fraction2 = new Fraction(2, 4);
+        Fraction actualFraction = fraction1.sub(fraction2);
+        Assertions.assertEquals(expIsProper, actualFraction.isProper());
+    }
+
+    @Test
+    void resultIsNegativeBothReducible() {
+        boolean expIsProper = false;
+        Fraction fraction1 = new Fraction(2, 6);
+        Fraction fraction2 = new Fraction(2, 4);
+        Fraction actualFraction = fraction1.sub(fraction2);
+        Assertions.assertEquals(expIsProper, actualFraction.isProper());
+    }
+
+
+
+    @Test
+    void resultIsZeroBothIrreducible() {
+        Fraction expFraction = new Fraction(0, 1);
+        Fraction fraction1 = new Fraction(1, 2);
+        Fraction fraction2 = new Fraction(1, 2);
         Fraction actualFraction = fraction1.sub(fraction2);
         Assertions.assertEquals(expFraction, actualFraction);
     }
@@ -66,6 +115,15 @@ public class TestSub {
     }
 
     @Test
+    void reducedValueIsZero() {
+        boolean expIsProper = false;
+        Fraction fraction1 = new Fraction(0, 1);
+        Fraction fraction2 = new Fraction(1, 2);
+        Fraction actualFraction = fraction1.sub(fraction2);
+        Assertions.assertEquals(expIsProper, actualFraction.isProper());
+    }
+
+    @Test
     void differentDenominatorsWithZeroNumerator() {
         Fraction expFraction = new Fraction(0, 1);
         Fraction fraction1 = new Fraction(0, 2);
@@ -79,6 +137,15 @@ public class TestSub {
         Fraction expFraction = new Fraction(1, 2);
         Fraction fraction1 = new Fraction(12, 16);
         Fraction fraction2 = new Fraction(1, 4);
+        Fraction actualFraction = fraction1.sub(fraction2);
+        Assertions.assertEquals(expFraction, actualFraction);
+    }
+
+    @Test
+    void denominatorIsMaxValueForSecondFraction() {
+        Fraction expFraction = new Fraction(1, Integer.MAX_VALUE/2);
+        Fraction fraction1 = new Fraction(1, 2);
+        Fraction fraction2 = new Fraction(1, Integer.MAX_VALUE);
         Fraction actualFraction = fraction1.sub(fraction2);
         Assertions.assertEquals(expFraction, actualFraction);
     }
