@@ -20,9 +20,9 @@ public class TestCompareTo {
     }
 
     @Test
-    void sameFractionsButWithReducibleOne() {
+    void sameReducibleFractions() {
         int expRes = 0;
-        Fraction fraction1 = new Fraction(1, 2);
+        Fraction fraction1 = new Fraction(3, 6);
         Fraction fraction2 = new Fraction(2, 4);
         int actualRes = fraction1.compareTo(fraction2);
         Assertions.assertEquals(expRes, actualRes);
@@ -38,9 +38,27 @@ public class TestCompareTo {
     }
 
     @Test
+    void firstFractionMoreThanSecondReducibleOne() {
+        int expRes = 1;
+        Fraction fraction1 = new Fraction(3, 4);
+        Fraction fraction2 = new Fraction(4, 8);
+        int actualRes = fraction1.compareTo(fraction2);
+        Assertions.assertEquals(expRes, actualRes);
+    }
+
+    @Test
     void firstFractionLessThanSecondOne() {
         int expRes = -1;
         Fraction fraction1 = new Fraction(1, 2);
+        Fraction fraction2 = new Fraction(3, 4);
+        int actualRes = fraction1.compareTo(fraction2);
+        Assertions.assertEquals(expRes, actualRes);
+    }
+
+    @Test
+    void firstReducibleFractionLessThanSecondOne() {
+        int expRes = -1;
+        Fraction fraction1 = new Fraction(2, 4);
         Fraction fraction2 = new Fraction(3, 4);
         int actualRes = fraction1.compareTo(fraction2);
         Assertions.assertEquals(expRes, actualRes);
