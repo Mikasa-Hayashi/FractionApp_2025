@@ -5,7 +5,11 @@ package fractionapp;
 public class Fraction {
     
     /* =========================== Свойства =============================== */
- 
+
+    public boolean isProper() {
+        return isProper;
+    }
+
     /* ---------------------- Числитель и знаменатель --------------------- */
     private final int _numerator;
     private final int _denominator;
